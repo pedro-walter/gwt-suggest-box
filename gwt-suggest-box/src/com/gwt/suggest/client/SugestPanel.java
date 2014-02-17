@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 
-public class Sugestao extends AbsolutePanel{
+public class SugestPanel extends AbsolutePanel{
 	
 	Label nome = new Label();
 	Label email = new Label();
@@ -34,7 +34,7 @@ public class Sugestao extends AbsolutePanel{
 	AbsolutePanel p = new AbsolutePanel();
 
 	
-	public Sugestao(){
+	public SugestPanel(){
 		
 		//sets labels
 		nome.setText("Nome: ");
@@ -87,6 +87,8 @@ public class Sugestao extends AbsolutePanel{
 			}
 
 		});
+		
+		
 		
 		this.add(nome,10,14);
 		this.add(nomeT,70,10);

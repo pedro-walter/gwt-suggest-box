@@ -25,7 +25,7 @@ public class MenuEsquerda extends VerticalPanel{
 		novaS.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				Main.midPanel.clear();
-				Main.midPanel.add(new Sugestao());
+				Main.midPanel.add(new SugestPanel());
 				MenuEsquerda.habilitaMenu(false);
 				
 
