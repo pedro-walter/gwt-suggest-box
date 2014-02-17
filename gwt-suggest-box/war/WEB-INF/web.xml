@@ -6,19 +6,20 @@
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
-  <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.gwt.suggest.server.GreetingServiceImpl</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/gwt_suggest_box/greet</url-pattern>
-  </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Gwt_suggest_box.html</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>suggestionService</servlet-name>
+    <servlet-class>com.gwt.suggest.server.SuggestionServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>suggestionService</servlet-name>
+    <url-pattern>/gwt_suggest_box/suggestion</url-pattern>
+  </servlet-mapping>
 
 </web-app>
