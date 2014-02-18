@@ -40,15 +40,15 @@ public class Main extends AbsolutePanel{
 			public void onClick(ClickEvent event) {
 				//Window.alert("Clicou em link");
 				midPanel.clear();
-				midPanel.add(new Login());
-				MenuEsquerda.habilitaMenu(false);
+				midPanel.add(new LoginPanel());
+				LeftMenu.setEnableLeftMenu(false);
 
 			}
 
 		});
 		
 		// add nos paineis
-		westPanel.add(new MenuEsquerda());
+		westPanel.add(new LeftMenu());
 		botPanel.add(login);
 		
 		

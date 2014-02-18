@@ -10,6 +10,7 @@ import com.gwt.suggest.shared.Suggestion;
 public class Gwt_suggest_box implements EntryPoint {
 
 	AbsolutePanel rootPanel = new AbsolutePanel();
+	static Login login;
 
 	public void onModuleLoad() {
 
@@ -68,5 +69,13 @@ public class Gwt_suggest_box implements EntryPoint {
 				System.out.println("Suggestion getting was succesful. Congratulations!");
 			}
 		});
+	}
+	
+	public static Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 }

@@ -13,8 +13,9 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
+import com.gwt.suggest.shared.Suggestion;
 
-public class SugestPanel extends AbsolutePanel {
+public class SuggestPanel extends AbsolutePanel {
 
 	Label name = new Label();
 	Label email = new Label();
@@ -32,8 +33,10 @@ public class SugestPanel extends AbsolutePanel {
 	Button cancel = new Button();
 	Button send = new Button();
 	AbsolutePanel p = new AbsolutePanel();
+	
+	Suggestion s = new Suggestion();
 
-	public SugestPanel() {
+	public SuggestPanel() {
 
 		// sets labels
 		name.setText("Nome: ");
@@ -76,7 +79,7 @@ public class SugestPanel extends AbsolutePanel {
 			public void onClick(ClickEvent event) {
 				if (Window.confirm("Tem certeza que deseja sair?")) {
 					Main.midPanel.clear();
-					MenuEsquerda.habilitaMenu(true);
+					LeftMenu.setEnableLeftMenu(true);
 				} else {
 					suggestT.setFocus(true);
 				}
