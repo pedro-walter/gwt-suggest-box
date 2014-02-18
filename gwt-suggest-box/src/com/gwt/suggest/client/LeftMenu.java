@@ -35,6 +35,9 @@ public class LeftMenu extends VerticalPanel {
 		visualizar.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				// Window.alert("Clicou em visualizar");
+				Main.midPanel.clear();
+				Main.midPanel.add(new SearchPanel());
+				LeftMenu.setEnableLeftMenu(false);
 
 			}
 

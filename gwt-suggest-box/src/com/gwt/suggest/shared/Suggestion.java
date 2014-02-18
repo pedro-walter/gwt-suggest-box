@@ -26,6 +26,16 @@ public class Suggestion implements Serializable {
 	private String senderEmail;
 	@Persistent
 	private String department;
+	@Persistent
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public Suggestion(){}
 	

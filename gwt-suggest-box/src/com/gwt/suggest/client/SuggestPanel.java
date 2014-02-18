@@ -51,7 +51,7 @@ public class SuggestPanel extends AbsolutePanel {
 
 		// set
 		subjectT.setWidth("530px");
-		dateT.setText(getDate());
+		dateT.setText(getDateString());
 		dateT.setEnabled(false);
 		sectorL.addItem("---");
 		sectorL.addItem("RH");
@@ -134,12 +134,17 @@ public class SuggestPanel extends AbsolutePanel {
 
 	}
 
-	public static String getDate() {
+	public static String getDateString() {
 		String dateS;
 		Date date = new Date();
 		DateTimeFormat dtf = DateTimeFormat.getFormat("dd/MM/yyyy - HH:mm:ss");
 		dateS = (dtf.format(date, TimeZone.createTimeZone(180)));
 		return dateS;
+	}
+	
+	public static Date getDateDate() {
+		Date date = new Date();
+		return date;
 	}
 
 	private void limpar() {

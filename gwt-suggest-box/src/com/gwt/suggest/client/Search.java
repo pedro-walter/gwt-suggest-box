@@ -1,10 +1,25 @@
-import com.google.gwt.user.client.ui.Grid;
+package com.gwt.suggest.client;
+import java.util.ArrayList;
 
 
 
 public class Search {
 	
 	public Search(){
+		
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static ArrayList getAllStatus(){
+		ArrayList<String> status = new ArrayList<>();
+		
+		status.add("Novo");
+		status.add("Aberto");
+		status.add("Fechado");
+		status.add("Aceito");
+		status.add("Recusado");
+		
+		return status;
 		
 	}
 	
