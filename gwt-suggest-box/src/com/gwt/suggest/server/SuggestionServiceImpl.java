@@ -1,6 +1,8 @@
 package com.gwt.suggest.server;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,6 +11,8 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.gwt.suggest.client.SuggestionService;
 import com.gwt.suggest.shared.Suggestion;
@@ -26,7 +30,7 @@ public class SuggestionServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public void addSuggestion(Suggestion s) {
+	public long addSuggestion(Suggestion s) {
 		LOG.log(Level.INFO, "addSuggestion");
 		PersistenceManager pm = getPersistenceManager();
 		try {
@@ -34,31 +38,32 @@ public class SuggestionServiceImpl extends RemoteServiceServlet implements
 		} finally {
 			pm.close();
 		}
+		return s.getId();
 	}
 
 	@Override
 	public Suggestion getSuggestion(Long id) {
 		LOG.log(Level.INFO, "getSuggestion -=- ID="+id.toString());
 		PersistenceManager pm = getPersistenceManager();
-		Suggestion returnedSuggestion = null;
 		try {
-			Query q = pm.newQuery(Suggestion.class, "id == id");
-			q.declareParameters("com.gwt.suggest.shared.Suggestion.id id");
-			returnedSuggestion = (Suggestion) q.execute(id);
+			Key k = KeyFactory.createKey(Suggestion.class.getSimpleName(), id);
+			return pm.getObjectById(Suggestion.class,k);
 		} finally {
 			pm.close();
 		}
-		return returnedSuggestion;
 	}
 
 	@Override
 	public ArrayList<Suggestion> getAllSuggestions() {
 		LOG.log(Level.INFO, "getAllSuggestions");
 		PersistenceManager pm = getPersistenceManager();
-		ArrayList<Suggestion> returnedSuggestions = null;
+		ArrayList<Suggestion> returnedSuggestions = new ArrayList<Suggestion>();
 		try {
-			Query q = pm.newQuery(Suggestion.class);
-			returnedSuggestions = (ArrayList<Suggestion>) q.execute();
+			Query q = pm.newQuery(Suggestion.class, "content != foo");
+			q.declareParameters("String foo");
+			System.out.println("query created");
+			returnedSuggestions = (ArrayList<Suggestion>) q.execute("");
+			System.out.println("query executed");
 		} finally {
 			pm.close();
 		}
@@ -70,9 +75,8 @@ public class SuggestionServiceImpl extends RemoteServiceServlet implements
 		LOG.log(Level.INFO, "removeSuggestion -=- ID="+id.toString());
 		PersistenceManager pm = getPersistenceManager();
 		try {
-			Query q = pm.newQuery(Suggestion.class, "id == id");
-			q.declareParameters("com.gwt.suggest.shared.Suggestion.id id");
-			pm.deletePersistent((Suggestion) q.execute(id));
+			Key k = KeyFactory.createKey(Suggestion.class.getSimpleName(), id);
+			pm.deletePersistent(pm.getObjectById(Suggestion.class,k));
 		} finally {
 			pm.close();
 		}

@@ -7,7 +7,7 @@ import com.gwt.suggest.shared.Suggestion;
 
 public interface SuggestionServiceAsync {
 
-	void addSuggestion(Suggestion s, AsyncCallback<Void> callback);
+	void addSuggestion(Suggestion s, AsyncCallback<Long> asyncCallback);
 
 	void getAllSuggestions(AsyncCallback<ArrayList<Suggestion>> callback);
 

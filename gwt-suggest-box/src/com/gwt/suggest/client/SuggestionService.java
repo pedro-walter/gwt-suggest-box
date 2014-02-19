@@ -8,7 +8,7 @@ import com.gwt.suggest.shared.Suggestion;
 
 @RemoteServiceRelativePath("suggestion")
 public interface SuggestionService extends RemoteService {
-	public void addSuggestion(Suggestion s);
+	public long addSuggestion(Suggestion s);
 	public Suggestion getSuggestion(Long id);
 	public void removeSuggestion(Long id);
 	public ArrayList<Suggestion> getAllSuggestions();
