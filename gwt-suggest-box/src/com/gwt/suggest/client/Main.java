@@ -7,8 +7,7 @@ import com.google.gwt.user.client.ui.Hyperlink;
 
 public class Main extends AbsolutePanel{
 	final static AbsolutePanel midPanel = new AbsolutePanel();
-
-
+	
 	@SuppressWarnings("deprecation")
 	public Main() {
 		
@@ -42,7 +41,7 @@ public class Main extends AbsolutePanel{
 				midPanel.clear();
 				midPanel.add(new LoginPanel());
 				LeftMenu.setEnableLeftMenu(false);
-
+				
 			}
 
 		});

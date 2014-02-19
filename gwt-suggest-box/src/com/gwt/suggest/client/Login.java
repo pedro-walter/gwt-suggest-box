@@ -5,6 +5,7 @@ public class Login {
 	int id;
 	String name;
 	String password;
+	boolean isLogged=true;
 	
 	public String getPassword() {
 		return password;

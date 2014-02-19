@@ -11,7 +11,7 @@ public class Gwt_suggest_box implements EntryPoint {
 
 	AbsolutePanel rootPanel = new AbsolutePanel();
 	static Login login;
-
+	
 	public void onModuleLoad() {
 
 		System.out.println("Moduleload");
@@ -78,4 +78,5 @@ public class Gwt_suggest_box implements EntryPoint {
 	public void setLogin(Login login) {
 		this.login = login;
 	}
+		
 }
