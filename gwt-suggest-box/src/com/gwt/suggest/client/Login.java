@@ -31,12 +31,12 @@ public class Login {
 		this.name = name;
 	}
 	
-	public boolean isLogged(String name, String pass){
-		if(name.equals(this.name) && pass.equals(this.password)){
-			return true;
-		}else{
-			return false;
-		}		
-		
-	}
+//	public boolean isLogged(String name, String pass){
+//		if(name.equals(this.name) && pass.equals(this.password)){
+//			return true;
+//		}else{
+//			return false;
+//		}		
+//		
+//	}
 }
