@@ -49,3 +49,8 @@ h1 {
 	margin-right: auto;
 	text-align: center;
 }
+
+.btnSearchClose {
+	align: right;
+	padding: 3px;
+}

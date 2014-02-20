@@ -18,30 +18,45 @@ import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSe
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.gwt.suggest.shared.Suggestion;
 
 public class SearchPanel extends AbsolutePanel {
 
-	AbsolutePanel aux1 = new AbsolutePanel();
-	AbsolutePanel aux2 = new AbsolutePanel();
+	HorizontalPanel aux1 = new HorizontalPanel();
+	FlowPanel aux2 = new FlowPanel();
+	AbsolutePanel aux3 = new AbsolutePanel();
 	Label filter = new Label();
 	ListBox listFilter = new ListBox();
 	TextBox txtFilter = new TextBox();
 	Button btnFilter = new Button();
 
-	Suggestion su = new Suggestion();
+	//SimplePager pager;
+	
+
+	Suggestion su1 = new Suggestion();
+	Suggestion su2 = new Suggestion();
+	Suggestion su3 = new Suggestion();
+	Suggestion su4 = new Suggestion();
+	Suggestion su5 = new Suggestion();
+	Suggestion su6 = new Suggestion();
+	Suggestion su7 = new Suggestion();
+
 	Login l = new Login();
 
 	public SearchPanel() {
+		
+		//SimplePager.Resources pagerResources = GWT
+				//.create(SimplePager.Resources.class);
+		//pager = new SimplePager();
 
-		su.setId(20);
-		su.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
-		su.setDepartment("RH");
-		su.setStatus("Fechado");
-		su.setDate(SuggestPanel.getDateDate());
+		fillSuggestions();
 
 		filter.setText("Filter:");
 		btnFilter.setText("OK");
@@ -52,24 +67,71 @@ public class SearchPanel extends AbsolutePanel {
 		listFilter.addItem("Date");
 
 		aux1.setSize("890px", "40px");
-		aux2.setSize("890px", "480px");
-
-		aux1.add(filter, 10, 10);
-		aux1.add(listFilter, 55, 10);
-		aux1.add(txtFilter, 170, 5);
-		aux1.add(btnFilter, 340, 5);
-
-		this.add(aux1);
-
+		
+		aux1.add(filter);
+		aux1.add(listFilter);
+		aux1.add(txtFilter);
+		aux1.add(btnFilter);
+		
+		aux3.setSize("890px", "30px");
+								
 		if (l.isLogged) {
 			aux2.add(tableIsLogged());
 		} else {
 			aux2.add(tableNotLogged());
 		}
+		
+		aux3.add(closeButton(),855,0);
+		
 
-		// this.add(aux1);
+		this.add(aux1);
 		this.add(aux2);
-		this.add(closeButton());
+		this.add(aux3);
+
+	}
+
+	private void fillSuggestions() {
+		su1.setId(20);
+		su1.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
+		su1.setDepartment("RH");
+		su1.setStatus("Fechado");
+		su1.setDate(SuggestPanel.getDateDate());
+
+		su2.setId(21);
+		su2.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
+		su2.setDepartment("RH");
+		su2.setStatus("Fechado");
+		su2.setDate(SuggestPanel.getDateDate());
+
+		su3.setId(22);
+		su3.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
+		su3.setDepartment("RH");
+		su3.setStatus("Fechado");
+		su3.setDate(SuggestPanel.getDateDate());
+
+		su4.setId(23);
+		su4.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
+		su4.setDepartment("RH");
+		su4.setStatus("Fechado");
+		su4.setDate(SuggestPanel.getDateDate());
+
+		su5.setId(24);
+		su5.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
+		su5.setDepartment("RH");
+		su5.setStatus("Fechado");
+		su5.setDate(SuggestPanel.getDateDate());
+
+		su6.setId(25);
+		su6.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
+		su6.setDepartment("RH");
+		su6.setStatus("Fechado");
+		su6.setDate(SuggestPanel.getDateDate());
+
+		su7.setId(26);
+		su7.setContent("Content de test, nada a declarar hqih uiqwb uiqbwrui bqwiurbqwuib nruiqwbr uibqwuy rbqwuybr ubq r ahwuhidqiwuhdihqwuihduiqhwduihqwiuhd qwudh qiwuh uh wuihdqwuih duiqwh ");
+		su7.setDepartment("RH");
+		su7.setStatus("Fechado");
+		su7.setDate(SuggestPanel.getDateDate());
 
 	}
 
@@ -88,7 +150,10 @@ public class SearchPanel extends AbsolutePanel {
 
 	private Button closeButton() {
 		Button close = new Button();
-
+		
+		System.out.println("close");
+		
+		close.setStyleName("btnSearchClose");
 		close.setText("Sair");
 		close.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -104,7 +169,14 @@ public class SearchPanel extends AbsolutePanel {
 		return close;
 	}
 
-	private CellTable<Suggestion> tableIsLogged() {
+	private ScrollPanel tableIsLogged() {
+		
+		System.out.println("ScrollPanel");
+		
+		ScrollPanel aux = new ScrollPanel();
+		
+		aux.setHeight("495px");
+		aux.setStyleName("dockPanel");
 
 		CellTable<Suggestion> table = new CellTable<Suggestion>();
 		SelectionCell statusCell = new SelectionCell(getAllStatus());
@@ -112,9 +184,39 @@ public class SearchPanel extends AbsolutePanel {
 		ListHandler<Suggestion> sortHandler = new ListHandler<Suggestion>(
 				arrayData);
 
+
+		
+
 		table.addColumnSortHandler(sortHandler);
 
-		arrayData.add(su);
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
 
 		table.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
 
@@ -185,8 +287,12 @@ public class SearchPanel extends AbsolutePanel {
 		// fim coluna data
 
 		table.setRowData(arrayData);
+		
+		//pager.setDisplay(table);
+		
+		aux.add(table);
 
-		return table;
+		return aux;
 	}
 
 	private CellTable<Suggestion> tableNotLogged() {
@@ -194,7 +300,37 @@ public class SearchPanel extends AbsolutePanel {
 		CellTable<Suggestion> table = new CellTable<Suggestion>();
 		ArrayList<Suggestion> arrayData = new ArrayList<Suggestion>();
 
-		arrayData.add(su);
+		
+		
+
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
+		arrayData.add(su1);
+		arrayData.add(su2);
+		arrayData.add(su3);
+		arrayData.add(su4);
+		arrayData.add(su5);
+		arrayData.add(su6);
+		arrayData.add(su7);
 
 		table.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
 
@@ -238,6 +374,8 @@ public class SearchPanel extends AbsolutePanel {
 		// fim coluna data
 
 		table.setRowData(arrayData);
+		
+		//pager.setDisplay(table);
 
 		return table;
 	}
