@@ -1,0 +1,1 @@
+A suggestion box system, with admin interface, anonymous and identified suggestion, made with GWT.
